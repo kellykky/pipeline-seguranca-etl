@@ -1,0 +1,19 @@
+# Arquivos do Python
+__pycache__/
+*.pyc
+.pytest_cache/
+
+# Dados e logs locais
+data/raw/*
+data/processed/*
+!data/raw/.gitkeep
+!data/processed/.gitkeep
+
+# Arquivos do Airflow
+logs/
+airflow-*.pid
+airflow-*.err
+airflow-*.out
+
+# Variáveis de ambiente
+.env

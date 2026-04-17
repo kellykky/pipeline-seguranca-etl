@@ -1,0 +1,27 @@
+# docker-compose.yml
+version: '3'
+services:
+  postgres:
+    image: postgres:15
+    environment:
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: admin
+      POSTGRES_DB: security_logs
+    ports:
+      - "5432:5432"
+
+  airflow:
+    image: apache/airflow:2.8.0
+    depends_on:
+      - postgres
+    environment:
+      AIRFLOW__CORE__EXECUTOR: LocalExecutor
+      AIRFLOW__DATABASE__SQL_ALCHEMY_CONN: postgresql+psycopg2://admin:admin@postgres/security_logs
+      _PIP_ADDITIONAL_REQUIREMENTS: pandas faker psycopg2-binary
+    ports:
+      - "8080:8080"
+    volumes:
+      - "C:/Users/ketle/Documents/pipeline etl/dags:/opt/airflow/dags"
+      - "C:/Users/ketle/Documents/pipeline etl/etl:/opt/airflow/etl"
+      - "C:/Users/ketle/Documents/pipeline etl/data:/opt/airflow/data"
+    command: standalone
