@@ -3,7 +3,7 @@
 ![Sucesso no Airflow](airflow-sucesso.png)
 
 ## O Projeto
-Este pipeline simula a ingestão, transformação e armazenamento de logs de acesso a servidores críticos. O foco principal foi criar uma arquitetura que suporte **auditoria e compliance** — conceitos vitais em produtos PAM.
+Este pipeline simula a ingestão, transformação e armazenamento de logs de acesso a servidores críticos. O foco principal foi criar uma arquitetura que suporte auditoria e compliance — conceitos vitais em produtos PAM.
 
 ### Arquitetura
 1. **Ingestão:** Script Python simulando acessos de usuários reais e bots, gerando cenários com sucesso e falhas (15% de falha).
